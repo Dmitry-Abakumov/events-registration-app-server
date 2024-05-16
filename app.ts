@@ -1,6 +1,7 @@
 import express, { Express } from "express";
 import cors from "cors";
 import { Request, Response, NextFunction } from "express";
+import cron from "node-cron";
 
 import eventsRouter from "./routes/api/event";
 import membersRouter from "./routes/api/members";

@@ -1,9 +1,11 @@
 import mongoose from "mongoose";
-import doenv from "dotenv";
-
+import dotenv from "dotenv";
+import cron from "node-cron";
 import app from "./app";
 
-doenv.config();
+import { pingServer } from "utils/pingServer";
+
+dotenv.config();
 
 const { DB_HOST, PORT } = process.env;
 
@@ -14,6 +16,7 @@ mongoose
       console.log("Database connection successful");
     })
   )
+  .then(cron.schedule("*/10 * * * *", pingServer))
   .catch((err) => {
     console.log(err.message);
     process.exit(1);
