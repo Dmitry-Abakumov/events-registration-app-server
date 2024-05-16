@@ -16,7 +16,7 @@ mongoose
       console.log("Database connection successful");
     })
   )
-  .then(cron.schedule("*/10 * * * *", pingServer))
+  .then(cron.schedule("*/5 * * * *", pingServer))
   .catch((err) => {
     console.log(err.message);
     process.exit(1);
