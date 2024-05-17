@@ -3,7 +3,7 @@ import cors from "cors";
 import { Request, Response, NextFunction } from "express";
 import cron from "node-cron";
 
-import eventsRouter from "./routes/api/event";
+import eventsRouter from "./routes/api/events";
 import membersRouter from "./routes/api/members";
 
 const app: Express = express();
